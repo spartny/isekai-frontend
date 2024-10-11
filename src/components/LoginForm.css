@@ -1,0 +1,98 @@
+/* Container */
+.container {
+    max-width: 90%;
+    height: 80vh;
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    margin:1rem;
+}
+
+.login-form {
+    color: #172626;
+    background-color: azure;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.texture {
+    background-image: url("texture_bg.png");
+    background-size: cover;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+/* Logo */
+.logo {
+    height:44px;
+    width: 44px;
+}
+
+input[type=text], input[type=password] {
+    background-color: var(--grey);
+}
+
+#username {
+    background-image: url("User.svg");
+    background-repeat: no-repeat;
+    background-position: 10px, 0px;
+    background-size: 24px;
+    
+}
+
+#password {
+    background-image: url("Password.svg");
+    background-repeat: no-repeat;
+    background-position: 10px, 0px;
+    background-size: 24px;
+}
+
+#email {
+    background-image: url("Mail.svg");
+    background-repeat: no-repeat;
+    background-position: 10px, 0px;
+    background-size: 24px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+/* Adjust styles for smaller screens as needed */
+
+    .container{
+        height: 60vh;
+    }
+
+    .login-form {
+        margin-top: 2rem;
+        border-radius: 25px;
+    }
+
+    .texture {
+        background-image: none;
+        width:100%
+    }
+
+    .texture > h2 {
+        display: none;
+    }
+
+
+    html{
+        height: 100vh;
+        background-image: url("texture_bg.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
