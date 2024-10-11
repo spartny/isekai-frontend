@@ -36,7 +36,7 @@ const SignupForm = () => {
       <div className="container">
         <div className="login-form md:w-2/3 sm:w-full">
             <div className='brand'>
-                <h2>Isekai</h2>
+                <h2>Isek.ai</h2>
                 <img className="logo size-12" src='logo_dark.svg' />
             </div>
 
