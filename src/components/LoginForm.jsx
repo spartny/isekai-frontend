@@ -27,7 +27,7 @@ const LoginForm = () => {
       <div className="container">
         <div className="login-form md:w-2/3 sm:w-full">
             <div className='brand'>
-                <h2>SigVerify</h2>
+                <h2>Isekai</h2>
                 <img className="logo size-12" src='logo_dark.svg' />
             </div>
 
@@ -63,7 +63,7 @@ const LoginForm = () => {
         </div>
   
         <div className="texture md:w-1/3 sm:w-full flex items-center justify-center flex-col p-4">
-          <h2 className='text-2xl'>Verify Signatures on documents using State of the Art Signature Verification Models</h2>
+          <h2 className='text-2xl'>Experience a dynamic and compelling story in text-based game form using AI</h2>
           <p className='text-xl mt-8 mb-2 ml-10 mr-10'>Don't have an Account yet?</p>
   
           <button className="button-stroke-white w-24 h-9" as={Link} to={'/signup'}>Sign Up</button>
