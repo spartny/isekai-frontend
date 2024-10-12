@@ -89,10 +89,12 @@ input[type=text], input[type=password] {
     }
 
 
-    html{
-        height: 100vh;
-        background-image: url("texture_bg.png");
+    body{
+        min-height: 100vh;
+        background-image: url("map.png");
         background-size: cover;
-        background-repeat: no-repeat;
+        background-repeat: repeat-x;
+        background-position: center; /* Keeps the image centered */
+        background-attachment: fixed;
     }
 }
