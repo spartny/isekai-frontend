@@ -6,9 +6,9 @@ import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import Landing from './components/Landing';
 import Game from './components/Game';
+import OAuthCallback from './components/OAuthCallback';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -20,6 +20,7 @@ function App() {
             <Route path='/saved-games' element={<SignupForm />}></Route>
             {/* to test game interface */}
             <Route path='/game' element={<Game />}></Route>
+            <Route path="/oauth/callback/*" element={<OAuthCallback />} />
           </Routes>
       </BrowserRouter>
     </>
