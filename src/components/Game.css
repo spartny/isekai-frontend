@@ -7,7 +7,6 @@
     box-sizing: border-box;
   }
   
-
   .messages {
     flex-grow: 1; /* Takes up remaining space above the chat input bar */
     overflow-y: auto; /* Enables scrolling */

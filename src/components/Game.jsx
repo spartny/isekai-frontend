@@ -1,10 +1,14 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState} from 'react'
 import TopBar from './TopBar'
 import './Game.css'
+import axios from 'axios';
 
 function Game() {
     const [messages, setMessages] = useState([]);
     const [inputValue, setInputValue] = useState('');
+    const [genre, setGenre] = useState('');
+    const [title, setTitle] = useState('');
+    
     const bottomRef = useRef(null);
 
     useEffect(() => {
@@ -25,6 +29,15 @@ function Game() {
       }
 
     
+
+    useEffect(() => {
+      gameStart()
+    }, [])
+
+    const gameStart = () => {
+        axios.post("http://localhost:8000/start-new-game/", {username: localStorage.getItem('username'), genre: '1', title: 'title'})
+        .then(response => console.log(response['data']))
+    }
 
   return (
     <div className='flex justify-center items-center min-h-full min-w-full flex-col'>
@@ -57,4 +70,4 @@ function Game() {
   )
 }
 
-export default Game
+export default Game;
