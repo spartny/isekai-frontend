@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import TopBar from "./TopBar";
 import BackButton from "./BackButton";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const CreateGame = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     characterName: "",
     characterClass: "",
@@ -10,6 +13,7 @@ const CreateGame = () => {
     genre: "",
     title: ""
   });
+  const [story, setStory] = useState("");
 
   const [errors, setErrors] = useState({});
   const [submittedData, setSubmittedData] = useState(null);
@@ -54,6 +58,34 @@ const CreateGame = () => {
       setSubmittedData(formData);
       setErrors({});
       console.log("Form submitted with data:", formData);
+  
+      // Start a new game and navigate after receiving a response
+      const gameStart = async () => {
+        try {
+          const response = await axios.post("http://localhost:8000/start-new-game/", {
+            username: localStorage.getItem('username'),
+            genre: formData.genre,
+            title: formData.title
+          });
+          
+          const storyData = response.data; // Ensure the correct key is used
+          setStory(storyData);
+  
+          // Navigate only after story is updated
+          navigate('/game', {
+            state: {
+              genre: formData.genre,
+              username: localStorage.getItem('username'),
+              story: storyData.story,
+              title: formData.title 
+            }
+          });
+        } catch (error) {
+          console.error("Error starting new game:", error);
+        }
+      };
+  
+      gameStart();
     } else {
       setErrors(newErrors);
     }

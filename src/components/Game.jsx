@@ -3,24 +3,51 @@ import TopBar from './TopBar'
 import './Game.css'
 import axios from 'axios';
 import BackButton from './BackButton';
+import { useLocation } from 'react-router-dom';
 
 function Game() {
-    const [messages, setMessages] = useState([]);
-    const [inputValue, setInputValue] = useState('');
-    const [genre, setGenre] = useState('');
-    const [title, setTitle] = useState('');
     
+    const [inputValue, setInputValue] = useState('');
+    const location = useLocation();
+    const { state } = location || {};
+
+    const { genre, username, story, title, chatLog = [] } = state || {};
+    const [messages, setMessages] = useState(chatLog);
+    //console.log(genre, username, response)
     const bottomRef = useRef(null);
+
+    useEffect(() => {
+      if (story && messages.length === 0) {
+        setMessages([{ text: story }]);
+      }
+    }, [story, messages]);
 
     useEffect(() => {
       // Scroll to the bottom whenever messages change
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
 
-    const handleSend = () => {
+    const handleSend = async () => {
       if (inputValue.trim() !== '') {
-        setMessages([...messages, inputValue]);
-        setInputValue(''); // Clear input after sending
+        setMessages((prevMessages) => [...prevMessages, { text: inputValue }]);
+        setInputValue("");
+        try {
+          const response = await axios.post("http://localhost:8000/continue-old-game/", {
+            username: username,
+            genre: genre,
+            story: story,
+            message: inputValue,
+            title: title
+          });
+
+          setMessages((prevMessages) => [
+            ...prevMessages,
+            { text: response.data.story },
+          ]);
+
+        } catch (error) {
+          console.error("Error continuing game:", error);
+        }
       }
     }
       const handleKeyDown = (e) => {
@@ -31,14 +58,14 @@ function Game() {
 
     
 
-    useEffect(() => {
-      gameStart()
-    }, [])
+    // useEffect(() => {
+    //   gameStart()
+    // }, [])
 
-    const gameStart = () => {
-        axios.post("http://localhost:8000/start-new-game/", {username: localStorage.getItem('username'), genre: '1', title: 'title'})
-        .then(response => console.log(response['data']))
-    }
+    // const gameStart = () => {
+    //     axios.post("http://localhost:8000/start-new-game/", {username: localStorage.getItem('username'), genre: '1', title: 'title'})
+    //     .then(response => console.log(response['data']))
+    // }
 
   return (
     <div>
@@ -48,12 +75,17 @@ function Game() {
         <div className='w-full game-bg p-5'>
             <div className="chat-container">
                 {/* Messages area */}
+                
                 <div className="messages">
                     {messages.map((message, index) => (
-                    <p key={index} className="message w-full">{message}</p>
+                    <p key={index} className="message w-full">
+                      {message.text}
+                    </p>
+                    
                     ))}
                     <div ref={bottomRef} />
                 </div>
+                
 
                 {/* Sticky chat input bar */}
                 <div className="chat-input-bar">

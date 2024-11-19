@@ -1,39 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TopBar from "./TopBar";
 import BackButton from "./BackButton";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SavedGames = () => {
-  const [savedGames, setSavedGames] = useState([
-    {
-      id: 1,
-      title: "Game 1",
-      description: "Level 5, 30% progress",
-      date: "2024-11-15",
-    },
-    {
-      id: 2,
-      title: "Game 2",
-      description: "Level 2, 10% progress",
-      date: "2024-11-14",
-    },
-    {
-      id: 3,
-      title: "Game 3",
-      description: "Final level, 90% progress",
-      date: "2024-11-10",
-    },
-  ]);
+  const [savedGames, setSavedGames] = useState([]);
+  const navigate = useNavigate();
 
-  const handleLoadGame = (id) => {
-    console.log("Load game with ID:", id);
-    // Implement load game functionality here
+  const fetchSavedGames = async () => {
+    try {
+      const response = await axios.get("http://localhost:8000/get-saved-games/", {
+        params: { username: localStorage.getItem("username") },
+      });
+      setSavedGames(response.data);
+      console.log(98)
+      console.log(savedGames)
+    } catch (error) {
+      console.error("Error fetching saved games:", error);
+    }
+  };
+  React.useEffect(() => {
+    fetchSavedGames();
+  }, []);
+
+  const handleLoadGame = (game) => {
+    // Redirect to the game screen and pass game data
+    navigate("/game", {
+      state: {
+        username: localStorage.getItem("username"),
+        genre: game.genre,
+        story: game.current_context,
+        title: game.title,
+        chatLog: game.chat_log, // Pass the entire chat log
+      },
+    });
   };
 
   const handleDeleteGame = (id) => {
-    const updatedGames = savedGames.filter((game) => game.id !== id);
-    setSavedGames(updatedGames);
-    console.log("Deleted game with ID:", id);
+    axios
+      .delete("http://localhost:8000/delete-game/", {
+        data: { id },
+      })
+      .then(() => {
+        const updatedGames = savedGames.filter((game) => game.id !== id);
+        setSavedGames(updatedGames);
+        console.log("Deleted game with ID:", id);
+      })
+      .catch((error) => console.error("Error deleting game:", error));
   };
 
   return (
@@ -51,7 +65,7 @@ const SavedGames = () => {
             >
               <div className="card-content">
                 <h2 className="text-xl font-semibold">{game.title}</h2>
-                <p className="mt-2">{game.description}</p>
+                <p className="mt-2">{game.genre}</p>
                 <p className="text-sm mt-1">
                   Saved on: {game.date}
                 </p>
