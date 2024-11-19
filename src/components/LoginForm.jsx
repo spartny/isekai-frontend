@@ -93,7 +93,7 @@ const LoginForm = () => {
           <h2 className='text-2xl'>Experience a dynamic and compelling story in text-based game form using AI</h2>
           <p className='text-xl mt-8 mb-2 ml-10 mr-10'>Don't have an Account yet?</p>
   
-          <button className="button-stroke-white w-24 h-9" as={Link} to={'/signup'}>Sign Up</button>
+          <Link className="button-stroke-white w-24 h-9 flex items-center justify-center" to={'/signup'}>Sign Up</Link>
   
         </div>
       </div>

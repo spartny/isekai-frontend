@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LoginForm.css'; 
+import { Link } from 'react-router-dom';
 
 const SignupForm = () => {
     const [username, setUsername] = useState('');
@@ -83,7 +84,7 @@ const SignupForm = () => {
             </div>
   
             <button className="button-stroke w-43 h-9">Sign in with Google</button>
-            <button type="submit" className="button-fill w-24 h-9">Login</button>
+            <button type="submit" className="button-fill w-24 h-9">Sign up</button>
   
           </form>
         </div>
@@ -91,7 +92,8 @@ const SignupForm = () => {
         <div className="texture md:w-1/3 sm:w-full flex items-center justify-center flex-col p-4">
           <h2 className='text-2xl mb-5'>Experience a dynamic and compelling story in text-based game form using AI</h2>
   
-          <button className="button-stroke-white w-44 h-9 mt-9">Return to Login</button>
+          <Link className="button-stroke-white flex items-center justify-center w-44 h-9 mt-9"
+            to={'/login'}>Return to Login</Link>
   
         </div>
       </div>

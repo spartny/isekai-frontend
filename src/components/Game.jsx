@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import TopBar from './TopBar'
 import './Game.css'
 import axios from 'axios';
+import BackButton from './BackButton';
 
 function Game() {
     const [messages, setMessages] = useState([]);
@@ -40,9 +41,11 @@ function Game() {
     }
 
   return (
-    <div className='flex justify-center items-center min-h-full min-w-full flex-col'>
+    <div>
         <TopBar />
-        <div className='w-full game-bg'>
+        <BackButton />
+        <div className='flex justify-center items-center min-h-full min-w-full flex-col'>
+        <div className='w-full game-bg p-5'>
             <div className="chat-container">
                 {/* Messages area */}
                 <div className="messages">
@@ -65,6 +68,7 @@ function Game() {
                     <button onClick={handleSend} className="button-fill w-28 h-12 text-xl rounded-full">Send</button>
                 </div>
             </div>
+        </div>
         </div>
     </div> 
   )

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TopBar from "./TopBar";
+import BackButton from "./BackButton";
 
 const CreateGame = () => {
   const [formData, setFormData] = useState({
@@ -61,7 +62,8 @@ const CreateGame = () => {
   return (
     <>
     <TopBar />
-    <div className="adventure-game-form mx-auto p-5 max-w-md flex flex-col menu-bg mt-12">
+    <BackButton />
+    <div className="adventure-game-form mx-auto p-5 max-w-md flex flex-col menu-bg mt-2">
       <h1 className="text-2xl font-bold mb-4 text-center">
         Create Your Adventure Game
       </h1>
