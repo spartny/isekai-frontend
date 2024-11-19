@@ -6,6 +6,7 @@ import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import Landing from './components/Landing';
 import Game from './components/Game';
+import SavedGames from './components/SavedGames';
 import OAuthCallback from './components/OAuthCallback';
 
 function App() {
@@ -17,8 +18,7 @@ function App() {
             <Route path='*' element={<Landing />}></Route>
             <Route path='/login' element={<LoginForm />}></Route>
             <Route path='/signup' element={<SignupForm />}></Route>
-            <Route path='/saved-games' element={<SignupForm />}></Route>
-            {/* to test game interface */}
+            <Route path='/saved-games' element={<SavedGames />}></Route>
             <Route path='/game' element={<Game />}></Route>
             <Route path="/oauth/callback/*" element={<OAuthCallback />} />
           </Routes>

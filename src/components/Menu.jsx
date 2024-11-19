@@ -8,7 +8,7 @@ function Menu() {
             <h1 className='text-4xl mb-12 mt-8'>Menu</h1>
             <div className="flex flex-col">
                 <Link className='text-2xl p-4 hover-effect' to={'/saved-games'}>Continue</Link>
-                <Link className='text-2xl p-4 hover-effect' to={'/new-game'}>New Game</Link>
+                <Link className='text-2xl p-4 hover-effect' to={'/game'}>New Game</Link>
                 <Link className='text-2xl p-4 hover-effect' to={'/options'}>Options</Link>
                 <Link className='text-2xl p-4 hover-effect' to={'/profile'}>Profile</Link>
                 <Link className='text-2xl p-4 hover-effect' to={'/logout'}>Quit</Link>
