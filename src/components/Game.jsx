@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import TopBar from './TopBar'
 import './Game.css'
 import axios from 'axios';
