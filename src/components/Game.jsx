@@ -1,17 +1,30 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import TopBar from './TopBar'
 import './Game.css'
+import axios from 'axios';
 
 function Game() {
     const [messages, setMessages] = useState([]);
     const [inputValue, setInputValue] = useState('');
-  
+    const [genre, setGenre] = useState('');
+    const [title, setTitle] = useState('');
+    
+    
     const handleSend = () => {
       if (inputValue.trim() !== '') {
         setMessages([...messages, inputValue]);
         setInputValue(''); // Clear input after sending
       }
     };
+
+    useEffect(() => {
+      gameStart()
+    }, [])
+
+    const gameStart = () => {
+        axios.post("http://localhost:8000/start-new-game/", {username: localStorage.getItem('username'), genre: '1', title: 'title'})
+        .then(response => console.log(response['data']))
+    }
 
   return (
     <div className='flex justify-center items-center min-h-full min-w-full flex-col'>
@@ -42,4 +55,4 @@ function Game() {
   )
 }
 
-export default Game
+export default Game;

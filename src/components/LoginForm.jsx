@@ -41,6 +41,7 @@ const LoginForm = () => {
       console.error("Login error", error);
     });
     console.log(localStorage)
+    localStorage.setItem('username', username);
     console.log(`Username: ${username}, Password: ${password}`);
     
   };
@@ -85,7 +86,6 @@ const LoginForm = () => {
             Sign in with Google
           </a>
           <button type="submit" className="button-fill w-24 h-9">Login</button>
-
         </form>
       </div>
   
