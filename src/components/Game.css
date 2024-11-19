@@ -24,7 +24,7 @@
     overflow-wrap: break-word;
     background-color: #171717;
     border-radius: 5px;
-    max-width: 80%;
+    max-width: 100%;
   }
 
   .chat-input-bar {
@@ -53,6 +53,20 @@
 
   #chat-text:focus {
     border: 1px solid var(--secondary);
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1rem;
+  }
+  
+  .input-field:focus {
+    border-color: #007bff;
   }
   
   

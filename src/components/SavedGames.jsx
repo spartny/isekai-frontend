@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import TopBar from "./TopBar";
+
 
 const SavedGames = () => {
   const [savedGames, setSavedGames] = useState([
@@ -34,6 +36,8 @@ const SavedGames = () => {
   };
 
   return (
+    <>
+    <TopBar />
     <div className="saved-games-page container mx-auto p-5 flex flex-col">
       <h1 className="text-3xl font-bold mb-5">Saved Games</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -73,6 +77,7 @@ const SavedGames = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

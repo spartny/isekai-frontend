@@ -8,6 +8,7 @@ import Landing from './components/Landing';
 import Game from './components/Game';
 import SavedGames from './components/SavedGames';
 import OAuthCallback from './components/OAuthCallback';
+import CreateGame from './components/CreateGame';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Route path='/login' element={<LoginForm />}></Route>
             <Route path='/signup' element={<SignupForm />}></Route>
             <Route path='/saved-games' element={<SavedGames />}></Route>
+            <Route path='/create-game' element={<CreateGame />}></Route>
             <Route path='/game' element={<Game />}></Route>
             <Route path="/oauth/callback/*" element={<OAuthCallback />} />
           </Routes>
