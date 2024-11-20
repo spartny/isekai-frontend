@@ -11,9 +11,10 @@ function Game() {
     const location = useLocation();
     const { state } = location || {};
 
-    const { genre, username, story, title, chatLog = [] } = state || {};
+    const { genre, username, story, title, chatLog } = state || {};
     const [messages, setMessages] = useState(chatLog);
     //console.log(genre, username, response)
+    console.log(messages)
     const bottomRef = useRef(null);
 
     useEffect(() => {
@@ -82,6 +83,7 @@ function Game() {
                     <p key={index} className="message w-full">
                       {message.text}
                     </p>
+                    
                     
                     ))}
                     <div ref={bottomRef} />

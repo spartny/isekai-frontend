@@ -13,16 +13,16 @@ const SavedGames = () => {
       const response = await axios.get(`${BACKEND}/get-saved-games/`, {
         params: { username: localStorage.getItem("username") },
       });
-      setSavedGames(response.data);
-      console.log(98)
+      setSavedGames(response.data.games);
+      console.log(response.data)
       console.log(savedGames)
     } catch (error) {
       console.error("Error fetching saved games:", error);
     }
   };
-  React.useEffect(() => {
+  useEffect(() => {
     fetchSavedGames();
-  }, []);
+  }, [1]);
 
   const handleLoadGame = (game) => {
     // Redirect to the game screen and pass game data
@@ -31,7 +31,7 @@ const SavedGames = () => {
         username: localStorage.getItem("username"),
         genre: game.genre,
         story: game.current_context,
-        title: game.title,
+        title: game.game_title,
         chatLog: game.chat_log, // Pass the entire chat log
       },
     });
@@ -64,16 +64,16 @@ const SavedGames = () => {
               className="card border border-gray-300 shadow-lg rounded-lg p-4 flex flex-col justify-between"
             >
               <div className="card-content">
-                <h2 className="text-xl font-semibold">{game.title}</h2>
-                <p className="mt-2">{game.genre}</p>
+                <h2 className="text-xl font-semibold">Save Title: {game.game_title}</h2>
+                <p className="mt-2">Genre: {game.genre}</p>
                 <p className="text-sm mt-1">
-                  Saved on: {game.date}
+                  Last Saved at: {Date(game.saved_at).toLocaleUpperCase().slice(0,24)}
                 </p>
               </div>
               <div className="card-actions mt-4 flex justify-between">
                 <button
                   className="button-fill bg-teal-500 text-white px-4 py-2 rounded hover:bg-cyan-600"
-                  onClick={() => handleLoadGame(game.id)}
+                  onClick={() => handleLoadGame(game)}
                 >
                   Load Game
                 </button>
