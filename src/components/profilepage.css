@@ -1,0 +1,103 @@
+.image{
+    align-self: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-box{
+        color: black;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 30px;
+        width: 93%;
+        height: 85%;
+        padding: 2%;
+        /* box-sizing: border-box; */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 2%;
+}
+
+.profile-form-box{
+    display: flex;
+    flex-direction: row;
+    width: 55%;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+    align-items: space-between;
+}
+
+.profile-form{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    align-items: space-between;
+}
+
+.profileLabel{
+    align-self: center;
+    padding-right: 15px;
+}
+
+.profile-field {
+    width: 300px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50px;
+    background: white;
+    padding-left: 2%;
+    
+    /* margin-left: 5% */
+}
+
+.change-picture{
+    /* width: 120px; */
+    padding: 10px;
+    background-color: #fead0b;
+    color: black;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    /* margin-bottom: 2%; */
+    /* margin-top: 4%; */
+    transition: transform 0.4s;
+    align-self: center;
+}
+
+.profile-button{
+    width: 120px;
+    padding: 10px;
+    background-color: #fead0b;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 2%;
+    margin-top: 4%;
+    transition: transform 0.4s;
+    align-self: center;
+}
+
+.edit-button{
+        width: 120px;
+        padding: 10px;
+        background-color: #AE0000;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-bottom: 2%;
+        margin-top: 4%;
+        transition: transform 0.4s;
+        align-self: center;    
+}
+
+.profile-textArea{
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background: white;
+    padding-left: 2%;
+    align-content: center;
+    resize: none;
+}
