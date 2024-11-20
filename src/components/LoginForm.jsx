@@ -56,7 +56,7 @@ const LoginForm = () => {
 
         <p className='text-2xl'>Welcome back,</p>
         <p className='mb-8'>Enter credentials to continue</p>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='w-1/2'>
           <div className="input-field">
             <input type="text" id="username"
               className="pl-10 pr-4 py-2 m-1 border rounded-md"
@@ -78,14 +78,15 @@ const LoginForm = () => {
           <div className="forgot-password m-6">
             <a href="#">Forgot Password?</a>
           </div>
-
-          <a
-            href="https://accounts.google.com/o/oauth2/v2/auth?client_id=874159592214-3bllh63hs5824e9ik23ecirdumpieqj5.apps.googleusercontent.com&redirect_uri=http://localhost:5173/oauth/callback/&response_type=code&scope=profile email&access_type=offline"
-            className="button-stroke w-43 h-9"
-          >
-            Sign in with Google
-          </a>
-          <button type="submit" className="button-fill w-24 h-9">Login</button>
+          <div className='flex items-center justify-center'>
+            <a
+              href="https://accounts.google.com/o/oauth2/v2/auth?client_id=874159592214-3bllh63hs5824e9ik23ecirdumpieqj5.apps.googleusercontent.com&redirect_uri=http://localhost:5173/oauth/callback/&response_type=code&scope=profile email&access_type=offline"
+              className="button-stroke google-button"
+            >
+              Google Sign in
+            </a>
+            <button type="submit" className="button-fill w-24 h-9">Login</button>
+          </div>
         </form>
       </div>
   

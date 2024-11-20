@@ -66,6 +66,14 @@ input[type=text], input[type=password] {
     background-size: 24px;
 }
 
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    min-height: 36px;
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
 /* Adjust styles for smaller screens as needed */

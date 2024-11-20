@@ -34,7 +34,7 @@ html, body {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-.e {
+.button-stroke {
   background-color: transparent;
   border: 1px solid var(--secondary);
   border-radius: 15px;

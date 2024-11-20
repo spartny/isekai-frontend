@@ -83,9 +83,15 @@ const SignupForm = () => {
               <a href="#">Forgot Password?</a>
             </div>
   
-            <button className="button-stroke w-43 h-9">Sign in with Google</button>
+            <div className='flex items-center justify-center'>
+            <a
+              href="https://accounts.google.com/o/oauth2/v2/auth?client_id=874159592214-3bllh63hs5824e9ik23ecirdumpieqj5.apps.googleusercontent.com&redirect_uri=http://localhost:5173/oauth/callback/&response_type=code&scope=profile email&access_type=offline"
+              className="button-stroke google-button"
+            >
+              Google Sign in
+            </a>
             <button type="submit" className="button-fill w-24 h-9">Sign up</button>
-  
+          </div>
           </form>
         </div>
   
