@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 const SavedGames = () => {
   const [savedGames, setSavedGames] = useState([]);
   const navigate = useNavigate();
-
+  const BACKEND = import.meta.env.VITE_BACKEND_SERVER
   const fetchSavedGames = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/get-saved-games/", {
+      const response = await axios.get(`${BACKEND}/get-saved-games/`, {
         params: { username: localStorage.getItem("username") },
       });
       setSavedGames(response.data);
@@ -36,10 +36,10 @@ const SavedGames = () => {
       },
     });
   };
-
+  
   const handleDeleteGame = (id) => {
     axios
-      .delete("http://localhost:8000/delete-game/", {
+      .delete(`${BACKEND}/delete-game/`, {
         data: { id },
       })
       .then(() => {

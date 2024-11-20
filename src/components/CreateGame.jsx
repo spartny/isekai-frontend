@@ -59,10 +59,11 @@ const CreateGame = () => {
       setErrors({});
       console.log("Form submitted with data:", formData);
   
+      const BACKEND = import.meta.env.VITE_BACKEND_SERVER
       // Start a new game and navigate after receiving a response
       const gameStart = async () => {
         try {
-          const response = await axios.post("http://localhost:8000/start-new-game/", {
+          const response = await axios.post(`${BACKEND}/start-new-game/`, {
             username: localStorage.getItem('username'),
             genre: formData.genre,
             title: formData.title

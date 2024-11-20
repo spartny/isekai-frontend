@@ -27,12 +27,13 @@ function Game() {
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
 
+    const BACKEND = import.meta.env.VITE_BACKEND_SERVER
     const handleSend = async () => {
       if (inputValue.trim() !== '') {
         setMessages((prevMessages) => [...prevMessages, { text: inputValue }]);
         setInputValue("");
         try {
-          const response = await axios.post("http://localhost:8000/continue-old-game/", {
+          const response = await axios.post(`${BACKEND}/continue-old-game/`, {
             username: username,
             genre: genre,
             story: story,

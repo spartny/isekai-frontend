@@ -23,11 +23,11 @@ const LoginForm = () => {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
-  
+  const BACKEND = import.meta.env.VITE_BACKEND_SERVER
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle login logic here
-    axios.post('http://localhost:8000/login/', {
+    axios.post(`${BACKEND}/login/`, {
       username: username,
       password: password
     })
@@ -80,7 +80,7 @@ const LoginForm = () => {
           </div>
           <div className='flex items-center justify-center'>
             <a
-              href="https://accounts.google.com/o/oauth2/v2/auth?client_id=874159592214-3bllh63hs5824e9ik23ecirdumpieqj5.apps.googleusercontent.com&redirect_uri=http://localhost:5173/oauth/callback/&response_type=code&scope=profile email&access_type=offline"
+              href={`${import.meta.env.VITE_GOOGLE_OAUTH}`}
               className="button-stroke google-button"
             >
               Google Sign in

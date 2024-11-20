@@ -85,7 +85,7 @@ const SignupForm = () => {
   
             <div className='flex items-center justify-center'>
             <a
-              href="https://accounts.google.com/o/oauth2/v2/auth?client_id=874159592214-3bllh63hs5824e9ik23ecirdumpieqj5.apps.googleusercontent.com&redirect_uri=http://localhost:5173/oauth/callback/&response_type=code&scope=profile email&access_type=offline"
+              href={`${import.meta.env.VITE_GOOGLE_OAUTH}`}
               className="button-stroke google-button"
             >
               Google Sign in

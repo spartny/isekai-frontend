@@ -10,10 +10,11 @@ const OAuthCallback = () => {
     // Parse the URL to get the authorization code
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
+    const BACKEND = import.meta.env.VITE_BACKEND_SERVER
     if (code && !requestSentRef.current) {
         requestSentRef.current = true;
         console.log('running authorization')
-        fetch('http://localhost:8000/google/login/callback/', {
+        fetch(`${BACKEND}/google/login/callback/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ code })
