@@ -10,18 +10,25 @@ function Game() {
     const [inputValue, setInputValue] = useState('');
     const location = useLocation();
     const { state } = location || {};
+    // const [mess, setMess] = useState([]);
+  
+    const { genre, username, story, title, chatLog = []} = state || {};
 
-    const { genre, username, story, title, chatLog } = state || {};
-    const [messages, setMessages] = useState(chatLog);
+    const mess = chatLog.flatMap(entry => 
+      [entry.user_input, entry.generated_response]
+          .filter(msg => msg !== null)
+          .map(msg => ({ text: msg }))
+    );
+    
+    const [messages, setMessages] = useState(mess);
     //console.log(genre, username, response)
-    console.log(messages)
     const bottomRef = useRef(null);
-
+    
     useEffect(() => {
       if (story && messages.length === 0) {
         setMessages([{ text: story }]);
       }
-    }, [story, messages]);
+    }, [story]);
 
     useEffect(() => {
       // Scroll to the bottom whenever messages change
@@ -77,7 +84,7 @@ function Game() {
         <div className='w-full game-bg p-5'>
             <div className="chat-container">
                 {/* Messages area */}
-                
+                {console.log(messages)}
                 <div className="messages">
                     {messages.map((message, index) => (
                     <p key={index} className="message w-full">

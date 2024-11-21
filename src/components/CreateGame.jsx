@@ -66,7 +66,10 @@ const CreateGame = () => {
           const response = await axios.post(`${BACKEND}/start-new-game/`, {
             username: localStorage.getItem('username'),
             genre: formData.genre,
-            title: formData.title
+            title: formData.title,
+            chname: formData.characterName,
+            chclass: formData.characterClass,
+            chrace: formData.characterRace
           });
           
           const storyData = response.data; // Ensure the correct key is used
