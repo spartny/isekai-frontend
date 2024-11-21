@@ -35,18 +35,20 @@ const SignupForm = () => {
         email,
       }, { headers: {
         'Content-Type': 'application/json'
-    }});
-
-      if (response.status === 201) {
+    }})
+    .then((response) => { 
+      console.log(response)
+      if (response.status === 200) {
         setSuccess("Account created successfully!");
         setUsername('');
         setPassword('');
         setConfirmPassword('');
         setEmail('');
-      }
-      else{
+    }  
+    else{
         setError("Error Creating User, Please check all fields")
-      }
+    }
+    })
     } catch (err) {
       setError(err.response?.data?.message || "An error occurred during signup.");
     }
