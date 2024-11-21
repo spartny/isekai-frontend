@@ -37,17 +37,15 @@ const SavedGames = () => {
     });
   };
   
-  const handleDeleteGame = (id) => {
+  const handleDeleteGame = (game) => {
     axios
       .delete(`${BACKEND}/delete-game/`, {
-        data: { id },
+        data: { game },
       })
       .then(() => {
-        const updatedGames = savedGames.filter((game) => game.id !== id);
-        setSavedGames(updatedGames);
-        console.log("Deleted game with ID:", id);
+        window.location.reload()
       })
-      .catch((error) => console.error("Error deleting game:", error));
+      
   };
 
   return (
