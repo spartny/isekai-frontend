@@ -7,21 +7,24 @@
 }
 
 .profile-box{
-        color: black;
-        background-color: rgba(255, 255, 255, 0.8);
+        color: rgb(255, 255, 255);
+        background-color: rgb(25, 59, 48);
         border-radius: 30px;
-        width: 93%;
+        width: 50%;
         height: 85%;
-        padding: 2%;
+        /* margin-left: 25%; */
         /* box-sizing: border-box; */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-top: 2%;
+        /* margin-top: 10%;
+        padding: 5%; */
 }
 
 .profile-form-box{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 55%;
+    padding-bottom: 4%;
+    /* margin-left: ; */
     justify-content: space-between;
     /* border: 1px solid red; */
     align-items: space-between;
@@ -37,6 +40,7 @@
 .profileLabel{
     align-self: center;
     padding-right: 15px;
+    min-width: 70px;
 }
 
 .profile-field {
@@ -46,7 +50,9 @@
     border-radius: 50px;
     background: white;
     padding-left: 2%;
-    
+    color: black;
+    margin-left: 5%;
+    align-self: flex-end;
     /* margin-left: 5% */
 }
 

@@ -35,7 +35,7 @@ const LoginForm = () => {
       const { access, refresh } = response.data;
       localStorage.setItem('accessToken', access);  // Store tokens
       localStorage.setItem('refreshToken', refresh);
-      setAuthenticated(true)
+      setAuthenticated(true)   
     })
     .catch(error => {
       console.error("Login error", error);
@@ -43,7 +43,6 @@ const LoginForm = () => {
     console.log(localStorage)
     localStorage.setItem('username', username);
     console.log(`Username: ${username}, Password: ${password}`);
-    
   };
 
   return (
