@@ -16,6 +16,8 @@ const SignupForm = () => {
   const handleEmailChange = (event) => setEmail(event.target.value);
   const handleConfirmChange = (event) => setConfirmPassword(event.target.value);
 
+
+  const BACKEND = import.meta.env.VITE_BACKEND_SERVER
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError(null);
@@ -29,7 +31,7 @@ const SignupForm = () => {
 
     try {
       // Send a POST request to the backend
-      const response = axios.post('http://localhost:8000/signup_user/', {
+      const response = axios.post(`${BACKEND}/signup_user/`, {
         username,
         password,
         email,
