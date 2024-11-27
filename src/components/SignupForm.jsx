@@ -100,7 +100,7 @@ const SignupForm = () => {
           <div className="input-field">
             <input
               type="password"
-              id="confirmPassword"
+              id="password"
               className="pl-10 pr-4 py-2 m-1 border rounded-md"
               value={confirmPassword}
               onChange={handleConfirmChange}

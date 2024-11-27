@@ -28,7 +28,7 @@
 }
 
 .texture {
-    background-image: url("texture_bg.png");
+    background-image: url("/texture_bg.png");
     background-size: cover;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
@@ -45,7 +45,7 @@ input[type=text], input[type=password] {
 }
 
 #username {
-    background-image: url("User.svg");
+    background-image: url("/User.svg");
     background-repeat: no-repeat;
     background-position: 10px, 0px;
     background-size: 24px;
@@ -53,14 +53,14 @@ input[type=text], input[type=password] {
 }
 
 #password {
-    background-image: url("Password.svg");
+    background-image: url("/Password.svg");
     background-repeat: no-repeat;
     background-position: 10px, 0px;
     background-size: 24px;
 }
 
 #email {
-    background-image: url("Mail.svg");
+    background-image: url("/Mail.svg");
     background-repeat: no-repeat;
     background-position: 10px, 0px;
     background-size: 24px;
@@ -99,7 +99,7 @@ input[type=text], input[type=password] {
 
     body{
         min-height: 100vh;
-        background-image: url("map.png");
+        background-image: url("/map.png");
         background-size: cover;
         background-repeat: repeat-x;
         background-position: center; /* Keeps the image centered */

@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-image: url('map.png');
+  background-image: url('/map.png');
 
   background-size: cover;
 }
