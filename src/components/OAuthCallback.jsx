@@ -22,8 +22,8 @@ const OAuthCallback = () => {
         .then(response => response.json())
         .then(data => {
           console.log("Access Token:", data.access_token);
-          localStorage.setItem('access_token', data.access_token);
-          localStorage.setItem('refresh_token', data.refresh_token);
+          localStorage.setItem('accessToken', data.access_token);
+          localStorage.setItem('refreshToken', data.refresh_token);
           navigate('/');
         })
         .catch(error => {

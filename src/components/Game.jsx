@@ -3,10 +3,17 @@ import TopBar from './TopBar'
 import './Game.css'
 import axios from 'axios';
 import BackButton from './BackButton';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Game() {
-    
+    const navigate = useNavigate();
+    useEffect(() => {
+      let logged_in = !!localStorage.getItem("accessToken");
+      if (!logged_in) {
+        navigate('/login');
+      }
+    }, [navigate])
+      
     const [inputValue, setInputValue] = useState('');
     const location = useLocation();
     const { state } = location || {};

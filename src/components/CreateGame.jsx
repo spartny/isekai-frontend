@@ -6,6 +6,13 @@ import { useNavigate } from "react-router-dom";
 
 const CreateGame = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    let logged_in = !!localStorage.getItem("accessToken");
+    if (!logged_in) {
+      navigate('/login');
+    }
+  }, [navigate])
+  
   const [formData, setFormData] = useState({
     characterName: "",
     characterClass: "",

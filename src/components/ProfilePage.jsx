@@ -6,8 +6,15 @@ import TopBar from './TopBar';
 import BackButton from './BackButton';
 
 export default function ProfilePage() {
+
   // const { user, loading } = useAuthContext()
   const navigate = useNavigate()
+  useEffect(() => {
+    let logged_in = !!localStorage.getItem("accessToken");
+    if (!logged_in) {
+      navigate('/login');
+    }
+  }, [navigate])
 
   const [userData, setUserdata] = useState({})
   const [profilePic, setProfilePic] = useState('')
