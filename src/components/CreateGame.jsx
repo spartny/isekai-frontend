@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TopBar from "./TopBar";
 import BackButton from "./BackButton";
 import axios from 'axios';
@@ -12,7 +12,7 @@ const CreateGame = () => {
       navigate('/login');
     }
   }, [navigate])
-  
+
   const [formData, setFormData] = useState({
     characterName: "",
     characterClass: "",
